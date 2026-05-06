@@ -18,17 +18,16 @@ public class Escuadron {
         return new ArrayList<>(this.drones);
     }
 
-    public sumarDronAlEscuadron(Dron dron) {
-        if (Ciudad.getDronesPermitidosPorEscuadron() < drones.size()) {
-            this.drones.add(dron)
-        } else {
-            return 0.0;
+    public void sumarDronAlEscuadron(Dron dron) {
+        if (Ciudad.getInstance().getDronesPermitidosPorEscuadron() < drones.size()) {
+            this.drones.add(dron);
         }
     }
 
 //*************************************************************
 
-    public void operarZona() {
-        
+    public void operarZona(Zona zona) {
+        zona.registrarOperacion();
+        drones.stream().forEach(d -> d.reducirAutonomia(2));
     }
 }

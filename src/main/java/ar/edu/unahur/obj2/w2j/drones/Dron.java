@@ -23,6 +23,10 @@ public abstract class Dron {
         this.misionAsignada = nuevaMision;
     }
 
+    public void reducirAutonomia(Integer unidades) {
+        this.autonomia -= unidades;
+    }
+
 //*************************************************************
     
     //Templade Method
